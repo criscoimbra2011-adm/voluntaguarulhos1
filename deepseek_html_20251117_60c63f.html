@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoluntaGuarulhos - Estágios Voluntários na Sua Comunidade</title>
+    <style>
+        :root {
+            --primary: #1E3A8A;     /* Azul */
+            --secondary: #DC2626;   /* Vermelho */
+            --light: #F8FAFC;
+            --dark: #1E293B;
+            --gray: #64748B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #1E40AF;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #B91C1C;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(220, 38, 38, 0.7)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .how-it-works {
+            background-color: var(--light);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .registration {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .registration-type {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .registration-type h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .registration-type p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        form {
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .search-section {
+            background-color: var(--light);
+        }
+        
+        .search-bar {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .search-bar button {
+            border-radius: 0 5px 5px 0;
+            border: none;
+            padding: 0 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            cursor: pointer;
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+        }
+        
+        .opportunity-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .opportunity-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .opportunity-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .opportunity-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .opportunity-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .local-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .distance-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .region-selector {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .region-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .region-btn {
+            padding: 20px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .region-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .region-btn.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .region-btn .emoji {
+            font-size: 2rem;
+        }
+        
+        .neighborhoods-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .neighborhood-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .neighborhood-tag {
+            background: #e9ecef;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        .my-location {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .impact-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .region-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Volunta<span>Guarulhos</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#regional">Buscar na Minha Região</a></li>
+                    <li><a href="#cadastro">Cadastre-se</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                </ul>
+                <a href="#cadastro" class="btn">Entrar</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Estágios Voluntários na Sua Comunidade</h1>
+            <p>Conectamos alunos com ONGs do seu bairro em Guarulhos. Faça a diferença onde você vive!</p>
+            <a href="#regional" class="btn">Encontrar Oportunidades Próximas</a>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="section how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona o VoluntaGuarulhos</h2>
+                <p>Um sistema pensado para fortalecer as comunidades locais através do voluntariado</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Informe Sua Localização</h3>
+                    <p>Alunos informam seu bairro em Guarulhos para encontrar oportunidades próximas</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>ONGs da Sua Região</h3>
+                    <p>Descubra organizações que atuam no seu bairro e regiões vizinhas</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Conexão Local</h3>
+                    <p>Conecte-se com projetos que impactam diretamente sua comunidade</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Transformação Comunitária</h3>
+                    <p>Juntos, construímos Guarulhos mais forte e unida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Busca Regionalizada -->
+    <section class="section" id="regional">
+        <div class="container">
+            <div class="section-title">
+                <h2>🌍 Buscar na Minha Região</h2>
+                <p>Encontre oportunidades de estágio voluntário perto de você</p>
+            </div>
+
+            <!-- Seletor de Região -->
+            <div class="region-selector">
+                <div class="my-location">
+                    📍 <strong>Sua localização:</strong> 
+                    <select id="neighborhood-select">
+                        <option value="">Selecione seu bairro</option>
+                        <option value="centro">Centro</option>
+                        <option value="vila-augusta">Vila Augusta</option>
+                        <option value="vila-galvao">Vila Galvão</option>
+                        <option value="pimentas">Pimentas</option>
+                        <option value="cumbica">Cumbica</option>
+                        <option value="bonsucesso">Bonsucesso</option>
+                        <option value="jd-dutra">Jardim Presidente Dutra</option>
+                    </select>
+                </div>
+
+                <h3>Escolha uma região de Guarulhos:</h3>
+                <div class="region-buttons">
+                    <button class="region-btn active" data-region="all">
+                        <span class="emoji">🏙️</span>
+                        <span class="name">Toda Guarulhos</span>
+                    </button>
+                    <button class="region-btn" data-region="centro">
+                        <span class="emoji">🏢</span>
+                        <span class="name">Centro</span>
+                    </button>
+                    <button class="region-btn" data-region="norte">
+                        <span class="emoji">🌄</span>
+                        <span class="name">Zona Norte</span>
+                    </button>
+                    <button class="region-btn" data-region="sul">
+                        <span class="emoji">✈️</span>
+                        <span class="name">Zona Sul</span>
+                    </button>
+                    <button class="region-btn" data-region="leste">
+                        <span class="emoji">🌅</span>
+                        <span class="name">Zona Leste</span>
+                    </button>
+                    <button class="region-btn" data-region="oeste">
+                        <span class="emoji">🌇</span>
+                        <span class="name">Zona Oeste</span>
+                    </button>
+                </div>
+
+                <div class="neighborhoods-list">
+                    <p>Bairros incluídos na região <strong>Centro</strong>:</p>
+                    <div class="neighborhood-tags">
+                        <span class="neighborhood-tag">Centro</span>
+                        <span class="neighborhood-tag">Vila Augusta</span>
+                        <span class="neighborhood-tag">Vila Galvão</span>
+                        <span class="neighborhood-tag">Jardim Tranquilidade</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impacto Comunitário -->
+            <div class="impact-section">
+                <h3>📊 Impacto na Sua Comunidade</h3>
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">ONGs na Região Centro</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Voluntários Ativos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projetos Realizados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1.2k+</div>
+                        <div class="stat-label">Pessoas Impactadas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oportunidades Regionais -->
+            <div class="section-title">
+                <h3>🎯 Oportunidades na Região Centro</h3>
+                <p>Vagas de estágio voluntário perto de você</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active">Todas as Áreas</button>
+                <button class="filter-btn">Educação</button>
+                <button class="filter-btn">Meio Ambiente</button>
+                <button class="filter-btn">Saúde</button>
+                <button class="filter-btn">Assistência Social</button>
+            </div>
+
+            <div class="opportunities-list">
+                <!-- Oportunidade 1 -->
+                <div class="opportunity-card">
+                    <div class="local-badge">🏘️ Na Sua Região</div>
+                    <div class="opportunity-info">
+                        <h3>Assistente de Projetos Educacionais</h3>
+                        <p>ONG Esperança Viva busca voluntários para auxiliar no desenvolvimento de projetos educacionais para crianças em situação de vulnerabilidade no Centro de Guarulhos.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">📍 Centro - Rua São João, 123</div>
+                            <div class="meta-item">📚 Educação</div>
+                            <div class="meta-item">⏰ 10h/semana</div>
+                            <div class="meta-item">🚶 <strong>1.2km de distância</strong></div>
+                        </div>
+                        <div class="impact-benefits">
+                            <strong>Impacto Local:</strong> Melhoria da educação infantil no seu bairro
+                        </div>
+                    </div>
+                    <div class="opportunity-actions">
+                        <a href="#" class="btn">Candidatar-se</a>
+                        <a href="#" class="btn btn-outline">Ver Mapa</a>
+                    </div>
+                </div>
+
+                <!-- Oportunidade 2 -->
+                <div class="opportunity-card">
+                    <div class="local-badge">🏘️ Vila Augusta</div>
+                    <div class="opportunity-info">
+                        <h3>Voluntário para Campanha Ambiental</h3>
+                        <p>Instituto EcoGuarulhos precisa de voluntários para campanha de conscientização sobre reciclagem e preservação de áreas verdes no Parque Cecap.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">📍 Vila Augusta - Av. Monteiro Lobato</div>
+                            <div class="meta-item">🌿 Meio Ambiente</div>
+                            <div class="meta-item">⏰ 8h/semana</div>
+                            <div class="meta-item">🚶 <strong>2.8km de distância</strong></div>
+                        </div>
+                        <div class="impact-benefits">
+                            <strong>Impacto Local:</strong> Preservação das áreas verdes do seu bairro
+                        </div>
+                    </div>
+                    <div class="opportunity-actions">
+                        <a href="#" class="btn">Candidatar-se</a>
+                        <a href="#" class="btn btn-outline">Ver Mapa</a>
+                    </div>
+                </div>
+
+                <!-- Oportunidade 3 -->
+                <div class="opportunity-card">
+                    <div class="local-badge">🏘️ Vila Galvão</div>
+                    <div class="opportunity-info">
+                        <h3>Auxiliar em Ações Sociais</h3>
+                        <p>Casa de Apoio São Francisco busca voluntários para auxiliar na distribuição de alimentos e organização de atividades comunitárias no Jardim Santa Maria.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">📍 Vila Galvão - Praça dos Andradas</div>
+                            <div class="meta-item">🤝 Assistência Social</div>
+                            <div class="meta-item">⏰ 12h/semana</div>
+                            <div class="meta-item">🚗 <strong>3.5km de distância</strong></div>
+                        </div>
+                        <div class="impact-benefits">
+                            <strong>Impacto Local:</strong> Combate à fome na sua comunidade
+                        </div>
+                    </div>
+                    <div class="opportunity-actions">
+                        <a href="#" class="btn">Candidatar-se</a>
+                        <a href="#" class="btn btn-outline">Ver Mapa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cadastro -->
+    <section class="section" id="cadastro">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cadastre-se na Plataforma</h2>
+                <p>Junte-se à rede de voluntários e ONGs de Guarulhos</p>
+            </div>
+            <div class="registration">
+                <div class="registration-type">
+                    <h3>👨‍🎓 Sou Aluno</h3>
+                    <p>Estou em busca de oportunidades de estágio voluntário em ONGs da minha região</p>
+                    <form id="student-form">
+                        <div class="form-group">
+                            <label for="student-name">Nome Completo</label>
+                            <input type="text" id="student-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-email">E-mail</label>
+                            <input type="email" id="student-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-neighborhood">Seu Bairro em Guarulhos</label>
+                            <select id="student-neighborhood" required>
+                                <option value="">Selecione seu bairro</option>
+                                <option value="centro">Centro</option>
+                                <option value="vila-augusta">Vila Augusta</option>
+                                <option value="vila-galvao">Vila Galvão</option>
+                                <option value="pimentas">Pimentas</option>
+                                <option value="cumbica">Cumbica</option>
+                                <option value="bonsucesso">Bonsucesso</option>
+                                <option value="jd-dutra">Jardim Presidente Dutra</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-course">Curso/Área de Estudo</label>
+                            <input type="text" id="student-course" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-instituition">Instituição de Ensino</label>
+                            <input type="text" id="student-instituition" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-interests">Áreas de Interesse para Voluntariado</label>
+                            <textarea id="student-interests" placeholder="Educação, Meio Ambiente, Assistência Social..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Cadastrar como Aluno</button>
+                    </form>
+                </div>
+                <div class="registration-type">
+                    <h3>🏢 Sou ONG</h3>
+                    <p>Preciso de voluntários para auxiliar nos projetos da minha organização em Guarulhos</p>
+                    <form id="ong-form">
+                        <div class="form-group">
+                            <label for="ong-name">Nome da ONG</label>
+                            <input type="text" id="ong-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ong-email">E-mail</label>
+                            <input type="email" id="ong-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ong-neighborhood">Bairro de Atuação em Guarulhos</label>
+                            <select id="ong-neighborhood" required>
+                                <option value="">Selecione o bairro</option>
+                                <option value="centro">Centro</option>
+                                <option value="vila-augusta">Vila Augusta</option>
+                                <option value="vila-galvao">Vila Galvão</option>
+                                <option value="pimentas">Pimentas</option>
+                                <option value="cumbica">Cumbica</option>
+                                <option value="bonsucesso">Bonsucesso</option>
+                                <option value="jd-dutra">Jardim Presidente Dutra</option>
+                                <option value="varios">Vários Bairros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ong-category">Área de Atuação</label>
+                            <select id="ong-category" required>
+                                <option value="">Selecione uma área</option>
+                                <option value="educacao">Educação</option>
+                                <option value="meio-ambiente">Meio Ambiente</option>
+                                <option value="saude">Saúde</option>
+                                <option value="assistencia-social">Assistência Social</option>
+                                <option value="direitos-humanos">Direitos Humanos</option>
+                                <option value="cultura">Cultura</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ong-description">Sobre a ONG</label>
+                            <textarea id="ong-description" placeholder="Descreva sua organização e seus objetivos..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ong-needs">Necessidades de Voluntários</label>
+                            <textarea id="ong-needs" placeholder="Descreva as habilidades e perfis de voluntários que você está buscando..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Cadastrar como ONG</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="sobre">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VoluntaGuarulhos</h3>
+                    <p>Conectando alunos com ONGs da sua região em Guarulhos. Fortalecendo comunidades através do voluntariado local.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Regiões de Guarulhos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#regional">Centro e Região</a></li>
+                        <li><a href="#regional">Zona Norte</a></li>
+                        <li><a href="#regional">Zona Sul</a></li>
+                        <li><a href="#regional">Zona Leste</a></li>
+                        <li><a href="#regional">Zona Oeste</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li>Email: contato@voluntaguarulhos.org</li>
+                        <li>Telefone: (11) 1234-5678</li>
+                        <li>Endereço: Guarulhos, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VoluntaGuarulhos. Todos os direitos reservados. | Conectando comunidades através do voluntariado</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sistema de seleção de região
+        document.querySelectorAll('.region-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.region-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const region = this.getAttribute('data-region');
+                updateNeighborhoodsList(region);
+                filterOpportunities(region);
+            });
+        });
+
+        // Atualizar lista de bairros baseado na região
+        function updateNeighborhoodsList(region) {
+            const neighborhoods = {
+                'all': ['Todos os bairros de Guarulhos'],
+                'centro': ['Centro', 'Vila Augusta', 'Vila Galvão', 'Jardim Tranquilidade'],
+                'norte': ['Pimentas', 'Cidade Seródio', 'Jardim São João', 'Jardim Santa Mena'],
+                'sul': ['Cumbica', 'Jardim Cumbica', 'Vila Barros', 'Jardim Arujá'],
+                'leste': ['Jardim Presidente Dutra', 'Inocoop', 'Vila Rio de Janeiro', 'Jardim São Paulo'],
+                'oeste': ['Bonsucesso', 'Vale dos Machados', 'Jardim Monte Carmelo', 'Parque São Rafael']
+            };
+
+            const tagsContainer = document.querySelector('.neighborhood-tags');
+            const regionTitle = document.querySelector('.neighborhoods-list strong');
+            
+            regionTitle.textContent = region === 'all' ? 'Toda Guarulhos' : 
+                                    region === 'centro' ? 'Centro' :
+                                    region === 'norte' ? 'Zona Norte' :
+                                    region === 'sul' ? 'Zona Sul' :
+                                    region === 'leste' ? 'Zona Leste' : 'Zona Oeste';
+
+            tagsContainer.innerHTML = '';
+            neighborhoods[region].forEach(neighborhood => {
+                const tag = document.createElement('span');
+                tag.className = 'neighborhood-tag';
+                tag.textContent = neighborhood;
+                tagsContainer.appendChild(tag);
+            });
+        }
+
+        // Filtrar oportunidades (simulação)
+        function filterOpportunities(region) {
+            const opportunities = document.querySelectorAll('.opportunity-card');
+            opportunities.forEach(opp => {
+                if (region === 'all') {
+                    opp.style.display = 'flex';
+                } else {
+                    const badge = opp.querySelector('.local-badge').textContent;
+                    const show = badge.includes(region) || region === 'all';
+                    opp.style.display = show ? 'flex' : 'none';
+                }
+            });
+        }
+
+        // Filtros por categoria
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Formulários
+        document.getElementById('student-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const neighborhood = document.getElementById('student-neighborhood').value;
+            alert(`Cadastro de aluno enviado com sucesso! Vamos te conectar com ONGs do bairro ${neighborhood}.`);
+            this.reset();
+        });
+
+        document.getElementById('ong-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const neighborhood = document.getElementById('ong-neighborhood').value;
+            alert(`Cadastro de ONG enviado com sucesso! Sua organização será listada no bairro ${neighborhood}.`);
+            this.reset();
+        });
+
+        // Seleção de bairro
+        document.getElementById('neighborhood-select').addEventListener('change', function() {
+            if (this.value) {
+                alert(`Mostrando oportunidades próximas ao bairro: ${this.options[this.selectedIndex].text}`);
+            }
+        });
+
+        // Inicializar
+        updateNeighborhoodsList('all');
+    </script>
+</body>
+</html>
